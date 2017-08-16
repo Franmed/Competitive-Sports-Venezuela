@@ -1,0 +1,513 @@
+
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import 'noticias'
+@import 'contactos'
+
+
+//VARIABLES
+$back_color: linear-gradient(-70deg, rgba(60,2,2,.8), rgba(100,3,3,.8), rgba(130,3,3,.8), rgba(230,1,1,.8), rgba(130,3,3,.8), rgba(100,3,3,.8), rgba(60,2,2,.8))
+$letras_color: #585858
+//MIXINS
+@mixin back_img 
+	background-image: url('/img/fondo.jpg')
+	background-size: cover
+	background-position: center
+@mixin titles
+	width: 100%
+	background: $back_color
+	color: #fff
+	font-family: 'Trade Winds', cursive
+	padding: 8px 15px
+	border-radius: 4px 0 0 4px
+	margin: 20px 0
+	position: relative
+	&::after
+		content: ''
+		position: absolute
+		top: 18px
+		right: 0
+		background: #fff
+		transform: skewY(-50deg)
+		width: 8%
+		height: 100px
+@mixin images_size
+	width: 100%
+	height: 100%
+	border-radius: 4px
+	object-fit: cover
+
+
+//ESTILOS GENERALES
+*
+	box-sizing: border-box
+body
+    background: #efefef
+
+
+//TOP
+
+.banner
+	width: 100%
+	height: 300px
+	background: url('../img/banner.jpg')
+	background-position: center
+.banner__Gradient
+	width: 100%
+	height: 100%
+	background: linear-gradient(90deg, rgba(245,253,2,0.4), rgba(0,0,255,0.4),rgba(255,0,0,0.4))
+//HEADER PRINCIPAL
+header
+	width: 100%
+	height: 70px
+	box-sizing: border-box
+.back_color
+
+    width: 100%
+    height: 100%
+    background: $back_color
+    box-shadow: rgba(0,0,0,0.6) 0 2px 6px
+	
+
+.headerContainer
+	width: 100%
+	height: 100%
+	
+.headerBox
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100%
+	padding: 0
+	width: 100%
+.fixed
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 60px
+	z-index: 10000
+
+.botonDesplegable
+	display: flex
+	justify-content: space-around
+	align-items: center
+	width: 100px
+	height: 30px
+	font-size: 1.5em
+	margin-top: -12px
+	font-family: 'Trade Winds', cursive
+	cursor: pointer
+	display: none
+	&:active
+		border: 0
+		transform: scale(0.99)
+	button
+		background: transparent
+		color: #fff
+		border: none
+		
+	span
+		margin: 0
+		padding: 0 10px
+		font-size: 1.8em
+
+			
+.principalNav
+	display: flex
+	justify-content: space-between
+	flex-direction: row
+	
+	li a
+		padding: 0 50px
+		font-size: 1.2em
+		color: #fff
+		font-family: 'Trade Winds', cursive
+		
+.Btn__Donar
+	margin-left: 35px
+	height: 10px
+.Btn_Donar_Size
+	width: 100px
+	
+	
+	
+	
+
+//SECCION LOGO JUEGOS
+
+.slideContainer
+	width: 100%
+	height: 100px
+	margin: 0
+	display: flex
+	margin-top: 1.4em
+
+.juegosContainer
+	width: 150px
+	height: auto
+	padding: 10px 
+	transition: all 0.2s ease
+	position: relative
+	a img
+		width: 100%
+		height: auto
+	&:hover
+		transform: scale(1.1)
+
+//SECCION DE CONTENIDOS
+
+	
+.contentContainer
+	
+	background: #fff
+	box-shadow: rgba(0,0,0,.5) 1px 2px 8px
+	border-radius: 4px
+	padding: 20px
+	display: flex
+	
+
+//NOTICIAS
+.principalSection
+	border-right: 1px rgba(0,0,0,0.1) solid
+
+
+.titleNews
+	@include titles
+	margin-bottom: 40px
+	h3
+		margin: 0
+.thumbDestacada
+	display: flex
+	justify-content: center	
+	margin-top: 20px
+	
+	
+			
+
+
+.destacadaContainer
+	width: 85%
+	height: 370px
+	border-radius: 4px
+	position: relative
+	overflow: hidden
+	cursor: pointer
+	img
+		@include images_size
+		transition: all 0.2s ease
+		
+	&:hover
+		.destacadaText
+			transform: translateY(0)
+			overflow: visible
+		img
+			transform: scale(1.2)
+			filter: brightness(1)
+.destacadaText
+	position: absolute
+	width: 100%
+	bottom: 0
+	left: 0
+	background: $back_color
+	color: #fff
+	padding: 10px 20px
+	text-align: justify
+	transform: translateY(100%)
+	overflow: hidden
+	transition: 0.2s all ease	
+	border-radius: 0 0 4px 4px
+.thumb
+	width: 85%
+	border-radius: 4px
+	padding: 5px	
+	margin-top: 30px
+	display: flex
+	transition: all 0.2s
+	margin-bottom: 20px
+	img
+		filter: brightness(0.7)
+
+	p
+		width: 60%
+		padding-left: 20px
+		text-align: justify
+		margin: 0
+		color: $letras_color
+	&:hover
+		background: rgba(150, 100, 100, 0.1)
+		.imageThumbContainer 
+			img
+				transform: scale(1.1)
+				filter: brightness(1)
+				
+.imageThumbContainer
+	width: 40%
+	height: 150px
+	border-radius: 4px
+	overflow: hidden
+	img
+		@include images_size 
+		transform: scale(1)
+		transition: all 0.2s
+		
+.titleVideos
+	@include titles
+	margin-top: 60px
+	h3
+		margin: 0
+
+//VIDEOS
+.thumbVideos
+	width: 100%
+	border-radius: 4px
+	padding: 0	
+	margin-top: 30px
+	display: flex
+	flex-wrap: wrap
+
+.videos
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	width: 20%
+	height: 200px
+	iframe
+		border-radius: 4px
+	h5
+		color: $letras_color
+
+	
+//ASIDE
+aside
+	display: flex
+	flex-direction: column
+	align-items: center
+.search
+	form
+		padding: 8px 15px
+		margin: 20px 0
+.btnBuscar
+	background: $back_color
+	color: #fff
+	cursor: pointer
+	margin: 0 5px
+.about
+	color: $letras_color
+.titleRedes
+	h3
+		color: $letras_color
+.redes
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	margin-top: 30px
+	position: relative
+	height: 150px
+	text-align: justify
+.flechaSen
+	position: absolute
+	right: 30px
+	
+	top: 20px
+	transform: rotate(80deg)
+	width: 50px
+	height: 30px
+
+.logoRedes
+	width: 80%
+	height: auto
+	margin: 20px 0
+	animation: facebook 3s infinite
+	img
+		@include images_size
+@keyframes facebook
+	0%
+		transform: scale(1)
+	50%
+		transform: scale(1.1)
+	100%
+		transform: scale(1)	
+.publicidadContainer
+	width: 80%
+.publicidad
+	width: 100%
+	height: 250px
+	border: 1px solid red
+	margin: 50px 0 0 0
+
+.categorias
+	width: 80%
+	margin: 30px 0
+	color: $letras_color
+
+.Pub__Inferior
+	height: 150px
+	margin-top: 50px
+	border: 1px solid red
+	
+.footerContainer
+	width: 100%
+	height: 100px
+	background: $back_color
+	margin-top: 40px
+	display: flex
+	justify-content: center
+	align-items: center
+	p
+		font-size: 0.8em
+		color: #fff
+		margin: 0
+
+
+@media (max-width: 1199px)
+	
+    .contentContainer
+        flex-direction: column
+
+    .titleNews, .titleVideos
+        &::after
+            top: 18
+            right: -12px
+            width: 11%
+            height: 150px  
+@media (max-width: 1199px) 
+	.redes
+		margin-bottom: 40px
+		width: 60%
+	.flechaSen
+		display: none
+	.categorias
+		nav
+			ul
+				display: flex
+				flex-direction: row
+				justify-content: center
+				li
+					padding: 10px
+	.principalSection
+		border-right: 0px rgba(0,0,0,0.1) solid 
+	.botonDesplegable
+		display: block
+	.ulContainer
+		position: relative
+		background: &back_color
+		display: flex
+		justify-content: space-between
+		width: 100%
+	.principalNav
+		position: absolute
+		width: 50%
+		height: 100vh
+		top: 44px
+		left: 0
+		z-index: 200
+		background: $back_color
+		display: none
+		box-shadow: rgba(0,0,0,0.7) 2px 2px 8px
+		li
+			text-align: center
+			padding: 25px 0
+			border-bottom: 0.5px solid rgba(255,255,255,0.3)
+			a
+				font-size: 1.5em
+	.Btn__Donar
+		margin-left: 0
+		height: 10px
+		padding: -20px
+				
+	.destacadaText
+		transform: translate(0)
+	
+@media (max-width: 768px)
+	.titleNews, .titleVideos
+        &::after
+            top: 18
+            right: -12px
+            width: 12%
+            height: 150px
+	.destacadaContainer
+		width: 100%
+		height: 200px
+	.destacadaText
+		position: absolute
+		width: 100%
+		bottom: 0
+		left: 0
+		background: $back_color
+		color: #fff
+		padding: 10px 20px
+		text-align: justify
+		transform: translateY(0)
+		overflow: hidden
+		transition: 0.2s all ease	
+		border-radius: 0 0 4px 4px
+		p
+			display: none
+		h3
+			font-size: 1em
+			text-align: center
+	iframe
+		width: 80%
+		height: auto
+	.thumb
+		width: 100%
+	.redes
+		height: 100px
+	.principalNav
+		width: 50%
+@media (max-width: 575px)
+	.principalNav
+		width: 100%
+@media (max-width: 555px)
+	.titleNews, .titleVideos
+		text-align: center
+		border-radius: 4px
+		&::after
+			top: 18
+			right: -12px
+			width: 0
+			height: 0
+	.form-group
+		input
+			margin: 5px 0 0 0
+	.thumb
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		p
+			width: 100%
+			padding: 20px 0
+	.imageThumbContainer
+		width: 100%
+		height: 150px
+	.banner
+		display: none
+	.redes
+		
+		width: 100%
+@media (max-width: 400px)
+	.flechaSen
+		display: none
+	.redes
+		height: 60px
+		margin-bottom: 40px
+@media (max-width: 325px)
+	.titleNews, .titleVideos
+		width: 100%
+		h3
+			font-size: 1.2em
+@media (max-width: 360px)	
+	.contentContainer
+		width: 100%
+		padding: 0
+	main, aside
+		padding: 0
+	.principalSection
+		padding: 0
+	iframe
+		width: 100%
+    

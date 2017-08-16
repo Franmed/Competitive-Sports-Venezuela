@@ -1,0 +1,64 @@
+//IMPORTS
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+//Variables
+$letras_color: #585858
+$back_color: linear-gradient(-70deg, rgba(60,2,2,.8), rgba(100,3,3,.8), rgba(130,3,3,.8), rgba(230,1,1,.8), rgba(130,3,3,.8), rgba(100,3,3,.8), rgba(60,2,2,.8))
+
+
+//MIXINS
+@mixin images_size
+	width: 100%
+	height: 100%
+	border-radius: 4px
+	object-fit: cover
+//ESTILOS DE NOTICIAS
+.titleNoticias
+    color: $letras_color
+	
+.destacadaTextNoticias
+	position: absolute
+	width: 100%
+	bottom: 0
+	left: 0
+	background: $back_color
+	color: #fff
+	padding: 10px 20px
+	text-align: justify
+	transform: translateY(0)
+	overflow: hidden
+	transition: 0.2s all ease	
+	border-radius: 0 0 4px 4px
+
+.destacadaContainerNoticias
+	width: 85%
+	height: 390px
+	border-radius: 4px
+	position: relative
+	overflow: hidden
+	cursor: pointer
+	img
+		@include images_size
+		transition: all 0.2s ease
+		filter: brightness(0.7)
+	&:hover
+		
+		.destacadaTextNoticias
+			transform: translateY(0)
+			overflow: visible
+			
+		img
+			transform: scale(1)
+			filter: brightness(1)
+		.titleNoticias
+			color: #399FCB
+.DateCategory
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+	p
+		margin: 0
+		font-family: 'Roboto', sans-serif
+.Post-recientes
+	color: $letras_color
+	
